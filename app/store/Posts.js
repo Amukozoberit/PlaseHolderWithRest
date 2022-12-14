@@ -3,21 +3,36 @@ Ext.define("PlaseHolder.store.Posts", {
   // alias: store.storename
   alias: "store.posts",
   // array from json
-  
+  // storeId:
 
   //fields
-  model:'PlaseHolder.model.Posts',
+  model: "PlaseHolder.model.Posts",
 
   //   ajax request
   // !proxy
   proxy: {
-    url: "https://jsonplaceholder.typicode.com/todos",
-    type:'rest',
-    reader:{
-        type:'json',
-        // rootProperty
-    }
+    url: "http://3.126.66.68:3000/posts",
+    // url:"http://3.126.66.68:3000/posts",
+    type: "rest",
+    reader: {
+      type: "json",
+      // rootProperty
+      totalProperty:'totalCount',
+      rootProperty:'rows'
+    },
   },
 
-  autoLoad:true
+  autoLoad: true,
+  sorters: [
+    {
+      property: "userId",
+      direction: "ASC",
+    },
+    {
+      property: "id",
+      direction: "DESC",
+    },
+  ],
+  groupField: "userId",
+  pageSize: 10,
 });

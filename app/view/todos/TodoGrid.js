@@ -1,14 +1,23 @@
 Ext.define("PlaseHolder.view.todos.TodosGrid", {
   extend: "Ext.grid.Panel",
+  controller: "todogridcontroller",
 
   // mandatory
   //xtype to instansiate use when instantiating this view
-  xtype:'todosgrid',
+  xtype: "todosgrid",
 
   store: {
     //
     type: "todos",
   },
+  features: [
+    {
+      ftype: "grouping",
+      startCollapsed: true,
+      groupHeaderTpl:
+        '{columnName}: {name} ({rows.length} Post{[values.rows.length > 1 ? "s" : ""]})',
+    },
+  ],
   columns: [
     // {
     //     "userId":1,
@@ -17,6 +26,7 @@ Ext.define("PlaseHolder.view.todos.TodosGrid", {
     //     "completed":false
 
     // }
+
     {
       text: "user ID",
       dataIndex: "userId",
@@ -34,7 +44,35 @@ Ext.define("PlaseHolder.view.todos.TodosGrid", {
       dataIndex: "completed",
     },
   ],
+  tbar: [
+    {
+      xtype: "button",
+      text: "Add new Post",
+      listeners: {
+        click: "onAddNewTodo",
+      },
 
+      // listeners: {
+      //   // event name:functionname
+      //   click: "onAddNewPost",
+      //   // mouseover: "onAddPostMouseOver",
+      // },
+    },
+    {
+      xtype: "button",
+      text: "View Todo Details",
+      handler: "onViewDetails",
+
+      // listeners: {
+      //   // event name:functionname
+      //   click: "onAddNewPost",
+      //   // mouseover: "onAddPostMouseOver",
+      // },
+    },
+  ],
+  bbar: {
+    xtype: "pagingtoolbar",
+  },
   // store
 
   // columns

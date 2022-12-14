@@ -18,6 +18,7 @@ Ext.define("PlaseHolder.store.Todos", {
         // rootProperty
     }
   },
-
-  autoLoad:true
+  groupField:'userId',
+  autoLoad:true,
+  pageSize:5
 });

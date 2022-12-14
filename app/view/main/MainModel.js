@@ -15,6 +15,7 @@ Ext.define(
       {
         xtype: "panel",
         title: "My Todos Panel",
+        scrollable: true,
         items: [
           {
             xtype: "todosgrid",
@@ -25,6 +26,7 @@ Ext.define(
         // object type to instansiate
         xtype: "panel",
         title: "My Posts Panel",
+        scrollable: true,
         items: [
           {
             xtype: "postsgrid",
@@ -35,6 +37,7 @@ Ext.define(
         // object type to instansiate
         xtype: "panel",
         title: "My Posts Panel",
+        scrollable: true,
         items: [
           {
             xtype: "albumsgrid",
